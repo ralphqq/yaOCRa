@@ -1,0 +1,37 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}
+    {% if title %}{{ title }}{% else %}Welcome{% endif %} | yaOCRa{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+{% endblock %}
+
+{% block navbar %}
+    <div class="container">
+        <nav class="navbar navbar-default navbar-xs" role="navigation">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">yaOCRa</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="{{ url_for('index') }}">Home</a></li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% block app_content %}
+    {% endblock %}
+    </div>
+{% endblock %}

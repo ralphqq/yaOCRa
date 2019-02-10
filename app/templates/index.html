@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>{{ title }}</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <p>Quickly get any text from an image file using <i>Yet Another OCR App</i> (yaOCRa) in four easy steps:</p>
+            <ol>
+                <li>Choose an image file</li>
+                <li>Select an image preprocessing method</li>
+                <li>Verify you're a human</li>
+                <li>Click Extract text and wait</li>
+            </ol>
+            <form action="" method="post" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                {{ wtf.form_field(form.file_name) }}
+                {{ wtf.form_field(form.prep_method) }}
+                {{ wtf.form_field(form.recaptcha) }}
+                {{ wtf.form_field(form.submit) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}

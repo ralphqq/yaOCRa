@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+<h1>Results</h1>
+<div class="row">
+    <div class="col-md-4">
+    {% if text %}
+    <p>The following text was extracted:</p>
+    <form>
+        <textarea id="output-text-field" readonly>{{ text }}</textarea>
+    </form>
+    {% include '_options.html' %}
+    {% else %}
+    <p>No text extracted.</p>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script>
+    <script>
+        var clipboard = new ClipboardJS('.clipboard');
+
+        clipboard.on('success', function(e) {
+            alert('The text has been copied to the clipboard.');
+        });
+    </script>
+{% endblock %}
