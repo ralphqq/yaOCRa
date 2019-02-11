@@ -34,7 +34,7 @@ yaOCRa uses Google's [reCAPTCHA v2](https://developers.google.com/recaptcha/docs
 ### Running the App
 
 1. Clone this repo
-2. Run `pip install`
+2. Run `pip install -r requirements.txt`
 3. Create a `.flaskenv` file in the project root (see next section for details)
 4. Run `flask run`
 
