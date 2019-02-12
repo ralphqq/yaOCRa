@@ -3,7 +3,7 @@ import sys
 import uuid
 
 from flask import render_template, redirect, url_for, flash, \
-    request, jsonify
+    request, jsonify, send_from_directory
 from werkzeug.utils import secure_filename
 
 from app import app
@@ -39,3 +39,25 @@ def results():
         os.remove(filepath)
 
     return render_template('output.html', title='Results', text=text)
+
+
+@app.route('/download_as_file', methods=['POST'])
+def download_as_file():
+    text = request.form.get('text')
+
+    fname = '-'.join([str(uuid.uuid4().hex)[:16], 'yaOCRa.txt'])
+    fpath = os.path.join(app.config['UPLOAD_FOLDER'], fname)
+    with open(fpath, 'w', encoding='utf-8') as f:
+        f.write(text)
+
+    return redirect(url_for('download', filename=fname))
+
+
+@app.route('/tmp/<filename>')
+def download(filename):
+    return send_from_directory(
+        directory=app.config['DOWNLOAD_DIR'],
+        filename=filename,
+        as_attachment=True
+    )
+    return redirect(url_for('index'))
