@@ -3,6 +3,7 @@ dominate==2.3.5
 Flask==1.0.2
 Flask-Bootstrap==3.3.7.1
 Flask-WTF==0.14.2
+gunicorn==19.9.0
 itsdangerous==1.1.0
 Jinja2==2.10
 MarkupSafe==1.1.0
