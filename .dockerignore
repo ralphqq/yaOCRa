@@ -1,0 +1,5 @@
+__pycache__
+*.bak
+
+app/tmp/*.*
+!app/tmp/temp.txt
