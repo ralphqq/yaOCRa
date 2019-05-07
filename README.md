@@ -1,5 +1,5 @@
 # yaOCRa
-The acronym yaOCRa stands for "yet another OCR app" which basically describes what this app is all about.
+The acronym yaOCRa stands for "yet another OCR app" which basically describes what this app is all about. [Try it out](http://yaocra.herokuapp.com/)
 
 
 ## Dependencies
@@ -58,7 +58,10 @@ TESTING=0
 * Set `FLASK_DEBUG` to 1 to enable debug mode, but set it to 0 in a production environment.
 * Set `TESTING` to 1 in order to disable reCAPTCHA during testing.
 
-## Resources
+## Live App
+The app is currently deployed as a Docker container on Heroku. [Give it a try](http://yaocra.herokuapp.com/).
+
+## References
 The following useful resources helped made yaOCRa possible:
 
 * [Installing Tesseract for OCR](https://www.pyimagesearch.com/2017/07/03/installing-tesseract-for-ocr/)
