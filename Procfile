@@ -1,1 +1,0 @@
-web: gunicorn ocr_app:app
